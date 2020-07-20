@@ -1,0 +1,55 @@
+<div>
+<div  class="rowtop" style="text-align :center"> Order Management Portal</div>
+
+<div class="common">
+<mat-form-field appearance="fill">
+  <mat-label>Series</mat-label>
+  <mat-select [(ngModel)]="selectedseries">
+     <mat-option *ngFor= "let i of series" [value]= "i.seriesId" (click) ="loadModel()">
+       {{i.seriesName}}
+     </mat-option>
+  </mat-select>
+</mat-form-field>
+</div>
+<div class="common"> 
+
+<mat-form-field appearance="fill">
+  <mat-label>Model</mat-label>
+  <mat-select [(ngModel)]="selectedmodel">
+     <mat-option  *ngFor= "let i of modeldata" [value]= "i.modelId" (click) ="loadAccessory()" >
+       {{i.modelName}} - Rs.{{i.price}}
+     </mat-option>
+  </mat-select>
+</mat-form-field>
+</div>
+<div class="common">
+  <mat-form-field appearance="fill">
+    <mat-label>Accessories</mat-label>
+    <mat-select multiple [(ngModel)]="selectedaccessory">
+      <mat-option  *ngFor= "let i of accessorydata" [value]= "i.accessoryId"  (click) ="loadColor()" >
+        {{i.accessoryName}} - Rs.{{i.accprice}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<div class="common">
+  <mat-form-field appearance="fill">
+    <mat-label>Colors</mat-label>
+    <mat-select multiple  [(ngModel)]="selectedcolor">
+      <mat-option  *ngFor= "let i of colordata" [value]= "i.colorId" (click)="loadPrice()" >
+        {{i.colorName}} - Rs.{{i.colorprice}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<div class="common">
+  <mat-form-field appearance="fill">
+    <mat-label>Total Price</mat-label>
+      <input matInput type="text" [(ngModel)]="totalprice">
+    </mat-form-field>
+</div>
+<div>
+  <button mat-raised-button color="primary" (click)= "sub()">Submit</button>
+  <button mat-raised-button color="warn" (click)= "clear()">Reset</button>
+</div>
+</div>
